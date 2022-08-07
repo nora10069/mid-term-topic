@@ -1,0 +1,2463 @@
+html, body{
+    box-sizing: border-box;
+    display: relative;
+  
+    /* width: 100%; */
+    
+}
+
+/* ---------------載入的loading 大範圍-------------------- */
+#preloader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0%;
+  top: 0%;
+  background-color: rgb(64, 64, 64);
+  z-index: 9999;
+  animation: bgChange 6s linear  ;
+  animation-fill-mode:forwards;
+}
+#status {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  /* margin-left: 140px; */
+  /* margin-top: 160px; */
+  left: 40%;
+  top: 40%;
+}
+
+@media (max-width: 767px) {
+  .preloader{
+    
+    display: none;
+  }
+}
+/* ---------------載入的loading 時光隧道---------------------- */
+.doors{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  /* background-color: rgb(225, 125, 125); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* top: 300px; */
+  /* perspective: 100px; */
+  z-index: 6;
+  /* animation: bgIn 5s ease-in-out 3s; */
+  
+}
+
+
+@keyframes bgIn{
+  0%{
+    opacity: 0;
+    
+  }
+  100%{
+    
+    
+    opacity: 0;
+    
+    
+    /* transform: scale(10); */
+  }
+}
+
+.door{
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-radius: 50% 90%;
+  border: 5px solid rgba(255, 255, 255, 0.622);
+  
+  animation: rotatezz 4s ease-in-out 0s both;
+  z-index: 999;
+  
+  
+}
+
+.door1{
+  animation-delay: 2.6s;
+}
+.door2{
+  animation-delay: 3s;
+}
+.door3{
+  animation-delay: 3.4s;
+}
+.door4{
+  animation-delay: 3.8s;
+}
+.door5{
+  animation-delay: 4.2s;
+}
+.door6{
+  animation-delay: 4.6s;
+}
+.door7{
+  animation-delay: 5s;
+}
+
+@keyframes rotatezz{
+  0%{
+    opacity: 0;
+    transform: rotateZ(-900px) scale(.2);
+    
+  }
+  100%{
+    
+    
+    opacity: 1;
+    transform: translateZ(200px) scale(2);
+    width: 100%;
+    height: 100%;
+    /* transform: scale(10); */
+  }
+}
+
+/* ---------------載入的loading 書本翻頁動畫-------------------- */
+
+.book{
+  /* overflow: hidden; */
+  /* width: 300px; */
+  width: 100%;
+  /* height: 100vh; */
+  perspective: 800;
+  perspective-origin: 100%  ;
+  /* margin-top: 100px; */
+  /* margin-bottom: 100px; */
+  
+  background-color: rgb(227, 128, 128);
+
+  /* padding-top: 20%; */
+  /* padding-left: 10%; */
+
+  position: relative;
+  
+  transform-origin: left;
+  animation: big 4s 1s linear  ;
+  animation-fill-mode:forwards;
+  
+}
+
+@keyframes big{
+  00%{
+    transform:scale(1);
+    
+    
+  }
+  100%{
+    transform:scale(5);
+    
+    
+    /* transform: scale(6); */
+  }
+  0%{
+    opacity: 1;
+    
+    
+  }
+  100%{
+    opacity: 0;
+    
+    
+    /* transform: scale(6); */
+  }
+}
+
+
+.book .cube{
+  transform-style: preserve-3d;
+  position: absolute;
+  top: 50%;
+  transform-origin: right;
+  
+  
+  
+}
+
+
+
+
+.book .cube:hover{
+  animation-play-state:paused;
+  transform: 2s;
+  
+  
+}
+
+
+
+.book .box{
+  
+  width: 150px;
+  height: 200px;
+  position: absolute;
+  
+
+  /* border-radius: 50%; */
+}
+.book .left{
+  background-image: url(./images/pic/planet.png);
+  box-shadow: 0px 2px 2px 1px rgb(103, 103, 103);
+  background-size: 100% 100%;
+  background-position: 0% 0%;
+  transform-origin: left; 
+  background-repeat: no-repeat;
+  filter:brightness(.8);
+  transform: translatex(150px) rotateY(0deg) ;
+  animation: rotateYY1 2s linear  ;
+  animation-delay: 1.8s;
+  animation-fill-mode:forwards;
+  transition: transform 0.4s linear;
+  z-index: 4;
+}
+
+
+
+.book .right{
+  background-color: antiquewhite;
+  background-image: url(./images/pic/fly.png);
+  box-shadow: 0px 2px 2px 1px rgb(103, 103, 103);
+  background-size: cover;
+  background-position: 50% 00%;
+  transform-origin: left; 
+  background-repeat: no-repeat;
+  filter:brightness(.8);
+  transform: translatex(150px) rotateY(0deg);
+  animation: rotateYY2 2s linear  ;
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
+  transition: transform 0.4s linear;
+  z-index: 5;
+}
+
+.book .right p{
+  color: rgb(10, 10, 10);
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  
+}
+
+
+.book .top{
+  background-color: rgb(33, 27, 93);
+  box-shadow: 0px 0px 2px 1px rgb(103, 103, 103);
+  transform-origin: left; 
+  background-repeat: no-repeat;
+  filter:brightness(.8);
+  transform: translatex(150px) rotateY(0deg);
+  animation: rotateYY3 2s linear ;
+  animation-delay: 1.5s;
+  animation-fill-mode:forwards;
+  transition: transform 0.4s linear;
+  z-index: 6;
+}
+.book .top .icm1{
+  /* color: rgb(10, 10, 10); */
+  width: 80px;
+  position: absolute;
+  bottom: 50px;
+  left: 70px;
+  
+}
+
+.book .top .icm2{
+  /* color: rgb(10, 10, 10); */
+  width: 20px;
+  position: absolute;
+  bottom: 140px;
+  left: 110px;
+  
+}
+
+.book .top .icm3{
+  /* color: rgb(10, 10, 10); */
+  width: 40px;
+  position: absolute;
+  bottom: 110px;
+  left: 20px;
+  
+}
+
+.book .top .icm4{
+  /* color: rgb(10, 10, 10); */
+  width: 40px;
+  position: absolute;
+  bottom: 20px;
+  left: 40px;
+  
+}
+
+
+.book .bottom{
+  background-color: antiquewhite;
+  background-image: url(./images/pic/main.jpg);
+  box-shadow: 0px 2px 2px 1px rgb(103, 103, 103);
+  background-size: cover;
+  background-position: 50% 50%;
+  transform-origin: left; 
+  background-repeat: no-repeat;
+  filter:brightness(.8);
+  transform: translatex(150px) rotateY(0deg);
+  animation: rotateYY 2s linear  ;
+  animation-delay: 0.8s;
+  animation-fill-mode:forwards;
+  z-index: 7;
+  transition: transform 0.4s linear;
+}
+
+
+
+.book .front{
+  background-color: antiquewhite;
+  box-shadow: 1px 2px 2px 1px rgb(103, 103, 103);
+  background-size: contain;
+  transform-origin: left; 
+  filter:brightness(.8);
+  transform: translatex(150px) rotateY(0deg) ;
+  animation: rotateYY 2s linear  ;
+  animation-delay: 0.01s;
+  z-index: 6;
+  animation-fill-mode:forwards;
+  transition: transform 0.4s linear;
+  
+  
+  
+}
+.book .between{
+  /* background-color: antiquewhite; */
+  background-image: url(./images/movie/Littleprince.JPG);
+  box-shadow: 0px 2px 2px 1px rgb(103, 103, 103);
+  background-size: cover;
+  transform-origin: left; 
+  background-repeat: no-repeat;
+  filter:brightness(.8);
+  transform: translatex(150px) rotateY(0deg);
+  animation: rotateYY 2s  linear  ;
+  animation-fill-mode:forwards;
+  transition: transform 0.4s linear;
+  backface-visibility:hidden;
+  /* animation-delay: 1s; */
+  
+}
+
+.book .left:hover, .camera .right:hover, .camera .front:hover, .camera .between:hover{
+  filter:brightness(1);
+  
+}
+
+
+
+
+
+
+
+@keyframes rotateYY1{
+  50%{
+    transform:translatex(150px) rotateY(-10deg);
+  }
+  100%{
+    transform:translatex(150px) rotateY(-0deg);
+    /* transform: scale(6); */
+  }
+}
+
+@keyframes rotateYY2{
+  
+
+  50%{
+    transform:translatex(150px) rotateY(-30deg);
+  }
+  100%{
+    transform:translatex(150px) rotateY(-0deg);
+    
+  }
+}
+
+@keyframes rotateYY3{
+  0%{
+    /* transform: rotate3d(0, 0, 0, 0) ; */
+  }
+  100%{
+    transform:translatex(150px) rotateY(-170deg);
+    /* transform: scale(10); */
+  }
+}
+@keyframes rotateYY{
+  0%{
+    /* transform: rotate3d(0, 0, 0, 0) ; */
+  }
+  100%{
+    transform:translatex(150px) rotateY(-180deg);
+  }
+}
+
+
+
+
+
+@keyframes bgChange{
+  0%{
+    
+  }
+  100%{
+    
+    background-color: rgb(49, 52, 79);
+  }
+}
+
+
+/* -------------------網頁本體------------------------- */
+.wrap{
+    /* width: 100%; */
+    /* height: 100vh; */
+    /* background-color: rgb(42, 35, 69); */
+    font-size: 1rem;
+}
+
+/* --------------------header開始------------------------ */
+
+.header-pc{
+    /* width: 100%; */
+    height: 60px;
+    background-color: rgb(66, 57, 105);
+    /* display: flex; */
+    
+    
+    
+    /* padding-left:  5%; */
+    /* padding-right: 5%; */
+    box-sizing: border-box;
+    
+}
+
+.header-pc .allheader{
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    background-color: rgb(66, 57, 105)
+    
+}
+
+.header-pc .container{ 
+  /* position: relative; */
+}
+
+
+
+.header-pc .logo-box{
+    
+    
+    color: #fff;
+    /* background-color: rgb(236, 174, 174); */
+
+}
+
+.header-pc .logo-box img{
+    width: calc(20px + 0.5rem);
+    /* margin-right: calc(0.2px + 0.5rem); */
+    /* background-color: #fff; */
+}
+
+.header-pc .logo-box h2{
+    font-size: calc(12px + 0.5rem);
+    /* background-color: #fff; */
+    margin-top: 0;
+    margin-bottom: 0;
+    /* color: rgb(255, 255, 255); */
+    
+    
+
+}
+
+.header-pc a{
+  color: rgb(246, 246, 246);
+
+}
+
+.header-pc a:hover{
+  /* color: rgb(253, 211, 144); */
+  text-decoration:none
+
+}
+
+
+.nav{
+    /* height: 100%; */
+    
+    flex-wrap: nowrap;
+    background-color: rgba(66, 57, 105, 0.491);
+    color: rgb(255, 255, 255);
+
+}
+.nav ul{
+    
+    /* background-color: rgb(223, 130, 130); */
+    width:calc(260px + 0.5rem);;
+
+}
+
+.nav ul li{
+    margin-right: 3%;
+    margin-left: 3%;
+    /* padding-right: 10%; */
+    font-size: calc(1px + 0.9rem);
+    list-style-type:none;
+    font-weight: 700;
+}
+
+.nav ul li:hover {
+  animation: navFloat 1s ;
+  font-weight: 700;
+}
+
+
+@keyframes navFloat{
+  0%{
+    transform: translate(0px, 0px);
+     
+      
+  }
+  
+  100%{
+    transform: translate(0px, -5px); 
+  }
+
+ 
+  
+}
+
+.nav1{
+  /* height: 100%; */
+  
+  flex-wrap: nowrap;
+  background-color: rgba(66, 57, 105, 0.491);
+  color: rgb(255, 255, 255);
+
+}
+.nav1 ul{
+  width: 100%;
+  height: 100vh;
+  filter: blur(2);
+  /* display: block; */
+  background-color: rgba(88, 96, 120, 0.571);
+  position: absolute;
+  left: 0%;
+  top: 60px;
+  display: none;
+  z-index: 500;
+  /* width:calc(260px + 0.5rem);; */
+
+}
+
+.nav1 ul li{
+  margin-right: 3%;
+  margin-left: 3%;
+  /* width: 30%; */
+  height: 100;
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  
+  /* padding-right: 10%; */
+  font-size: calc(1px + 0.9rem);
+  list-style-type:none;
+  background-color: rgb(42, 35, 69);
+  display: none;
+}
+
+.nav1 .page-scroll1{
+  border-radius: 50% 30% 50% 20%;
+  margin-top: 5%;
+  
+}
+.nav1 .page-scroll2{
+  border-radius: 50% 30% 50% 20%;
+  margin-top: 5%;
+}
+.nav1 .page-scroll3{
+  border-radius: 50% 30% 50% 20%;
+  margin-top: 5%;
+}
+.nav1 .page-scroll4{
+  border-radius: 50% 30% 50% 20%;
+  margin-top: 5%;
+}
+
+.nav1 .page-scroll:hover{
+  background-color: rgb(69, 75, 163);
+  
+}
+
+.nav1 .boxs{
+  /* width: 30px; */
+  /* height: 30px; */
+  /* background-color: #fff; */
+}
+
+.nav1 .line{
+  width: 30px;
+  height: 4px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 20%;
+
+  background-color: rgb(255, 255, 255);
+}
+
+.page-scroll{
+  -moz-transition-property: -webkit-transform ;
+  -webkit-transition-property: -webkit-transform;
+  transition-property: -webkit-transform;
+  transition-duration: 1s;
+  -moz-transition-duration: 1s;
+   -webkit-transition-duration: 1s;
+}
+
+
+/* ------------------------------------------------- */
+
+@media (max-width: 575px) {
+  .nav1{
+    display: block;
+  }
+  .nav{
+    display: none;
+
+  }
+  .story .title p{
+    line-height: 2;
+    font-size: 1rem;
+  }
+
+}
+@media (min-width: 575px) {
+  
+  .nav{
+    display: block;
+  }
+  .nav1{
+    display: none;
+  }
+
+}
+
+
+/* --------------------header結束------------------------ */
+
+
+/* ---------------------up-box開始---------------------- */
+
+.up-box{
+  width: 100%;
+  /* height: 30px; */
+  overflow: hidden;
+  
+  
+  
+}
+
+.up-box .boxs{
+  /* width: 100%; */
+  
+  /* height: 100px; */
+  position: fixed;
+  /* position: absolute; */
+  bottom: 45px;
+  right: 10px;
+  z-index: 100;
+  
+  /* background-color: rgb(87, 166, 65); */
+}
+
+.up-box .box{
+  width: 50px;
+  height: 100px;
+  float: right;
+  background-image: url(./images/pic/snake.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  /* background-position: 60% ; */
+}
+
+.up-box .box p{
+  width: 30px;
+  text-align: center;
+  /* background-color: #fff; */
+  color: rgb(255, 255, 255);
+}
+
+.up-box .box a{
+  color: rgba(255, 255, 255, 0.532);
+  transition: 1s all;
+
+}
+.up-box .box a:hover{
+  color: rgb(255, 255, 255);
+  text-decoration:none;
+  font-weight: 700;
+}
+
+
+
+/* ---------------------up-box結束---------------------- */
+
+
+/* ------------------網頁監聽盒開始------------------------- */
+
+.percent-box{
+  width: 100%;
+  /* height: 100vh; */
+  overflow: hidden;
+  
+  
+}
+
+.percent-box .boxs{
+  /* width: 100%; */
+  
+  /* height: 100px; */
+  
+  
+  position: fixed;
+  bottom:25%;
+  right:20px;
+  z-index: 100;
+  /* background-color: rgb(87, 166, 65); */
+}
+
+.percent-box .box{
+  width: 10px;
+  height: 10px;
+  margin-top: 20px;
+  float: right;
+  border: 1px solid #000;
+  background-color: #fff;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transform: rotate(45deg);
+  /* background-position: 60% ; */
+}
+
+/* ------------------網頁監聽盒結束------------------------- */
+
+
+/* -------------------------------------------main開始----------------------------------------------------------- */
+.main{
+   position: relative; 
+   /* width: 100%; */
+   background-color: rgb(42, 35, 69);
+}
+.main-mb{
+    position: relative;
+    
+}
+.main-mb .container1{
+    /* background-color: rgb(42, 35, 69); */
+    width: 100%;
+    
+    color: rgb(255, 255, 255);  
+}
+
+
+.main-mb .container1 {
+    /* background-color: rgb(42, 35, 69); */
+    width: 100%;
+    color: rgb(255, 255, 255);
+    overflow: hidden;
+    /* padding-top: 0px; */
+
+}
+
+
+.main-mb .container1 .title{
+    /* width: 80%; */
+}
+
+.main-mb .container1 .title h1{
+    font-family: 'Great Vibes', cursive;
+    color: rgb(255, 255, 255);
+    font-size: 2.5rem;
+    
+
+}
+
+
+@media (min-width: 575px) {
+  
+  .main-mb .container1 .title h1{
+    
+    font-size: 3.5rem;
+    
+
+}
+  
+
+}
+
+.main-mb .container1 .title p{
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: calc(0.1px + 0.1rem);
+    
+
+}
+
+
+@media (min-width: 575px) {
+  
+  .main-mb .container1 .title p{
+    font-size: calc(0.1px + 1rem);
+    
+
+    }
+}
+
+.main-mb .container1 .img-box{
+    /* position: relative;
+    height: 100%;
+    width: 100%; */
+    /* background: rgb(222, 126, 126); */
+}
+
+
+
+
+
+.main-mb .container1 .main-plant{
+    width: calc(50px + 20rem);
+    margin-top: calc(5px + 5rem);
+    
+    /* position: absolute;
+    top: 50%;
+    left:50%; */
+    /* transform: translate(-50%, -50%); */
+    /* transform-origin: center center; */
+    animation: plantRow 20s Linear infinite ;
+}
+@keyframes plantRow{
+    0%{
+        transform:rotate(-10deg);
+        
+        
+    }
+    
+    50%{
+        transform:rotate(30deg); 
+        
+        
+    }
+    100%{
+        transform:rotate(-10deg); 
+        
+        
+    }
+}
+
+
+
+
+.main-mb .container1 .main-person{
+    width: calc(100px + 0.9rem);
+    position: absolute;
+    top:35%;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    transform-origin: 0%,100% ;
+    animation: personRow 10s Linear infinite ;
+
+}
+
+@keyframes personRow{
+    0%{
+        transform:rotate(0deg);
+       
+        
+    }
+    
+    50%{
+        transform:rotate(20deg); 
+    }
+    100%{
+        transform:rotate(0deg); 
+    }
+}
+
+/* -----------------star開始------------------------ */
+
+.stars {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  .stars .star{
+    background-color: #fff;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    z-index: 50;
+    animation: starDown 2s  infinite reverse;
+  }
+
+  
+  @keyframes starDown {
+    0%, 100% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+   
+   
+      0%,  {
+        width: 3px;
+        height: 80px;
+        /* transform:rotate(0deg); */
+      }
+      3% {
+        height: 50px;
+        width: 3px;
+        /* transform:rotate(40deg); */
+        
+
+      }
+
+      80% {
+        /* height: 100px; */
+        width: 3px;
+        /* transform:rotate(40deg); */
+        
+
+      }
+
+      100%{
+        height: 3px;
+        width: 3px;
+        
+      }
+
+
+      0%, 100% {
+        transform:rotate(40deg);
+      }
+      50% {
+        transform:rotate(40deg);
+        
+
+      }
+
+    
+   
+  }
+
+  .stars .star1 {
+    position: absolute;
+    left: 85%;
+    top: 52%;
+    animation-delay: -0.1s;
+  }
+  .stars .star2 {
+    position: absolute;
+    left: 90%;
+    top: 36%;
+    animation-delay: -0.2s;
+  }
+  .stars .star3 {
+    position: absolute;
+    left: 4%;
+    top: 22%;
+    animation-delay: -0.3s;
+  }
+  .stars .star4 {
+    position: absolute;
+    left: 10%;
+    top: 8%;
+    animation-delay: -0.4s;
+  }
+  .stars .star5 {
+    position: absolute;
+    left: 67%;
+    top: 55%;
+    animation-delay: -0.5s;
+  }
+  
+  
+  .stars .star6 {
+    position: absolute;
+    left: 87%;
+    top: 0%;
+    animation-delay: -0.8s;
+  }
+  .stars .star7 {
+    position: absolute;
+    left: 5%;
+    top: 59%;
+    animation-delay: -0.9s;
+  }
+  .stars .star8 {
+    position: absolute;
+    left: 52%;
+    top: 55%;
+    animation-delay: -0.1s;
+  }
+  .stars .star9 {
+    position: absolute;
+    left: 9;
+    top: 36;
+    animation-delay: -0.2s;
+  }
+  .stars .star10 {
+    position: absolute;
+    left: 75%;
+    top: 27%;
+    animation-delay: -0.3s;
+  }
+  .stars .star11 {
+    position: absolute;
+    left: 38%;
+    top: 62%;
+    animation-delay: -0.4s;
+  }
+  .stars .star12 {
+    position: absolute;
+    left: 55%;
+    top: 3%;
+    animation-delay: -0.5s;
+  }
+  .stars .star13 {
+    position: absolute;
+    left: 74%;
+    top: 40%;
+    animation-delay: -0.6s;
+  }
+  .stars .star14 {
+    position: absolute;
+    left: 25%;
+    top: 48%;
+    animation-delay: -0.7s;
+  }
+  .stars .star15 {
+    position: absolute;
+    left: 44%;
+    top: 39%;
+    animation-delay: -0.8s;
+  }
+  .stars .star16 {
+    position: absolute;
+    left: 94%;
+    top: 14%;
+    animation-delay: -0.9s;
+  }
+  .stars .star17 {
+    position: absolute;
+    left: 44%;
+    top: 17%;
+    animation-delay: -1.0s;
+  }
+
+  .stars .star18 {
+    position: absolute;
+    left: 10%;
+    top: 42%;
+    animation-delay: -2.1s;
+  }
+  .stars .star19 {
+    position: absolute;
+    left: 80%;
+    top: 70%;
+    animation-delay: -2.2s;
+  }
+  .stars .star20 {
+    position: absolute;
+    left: 83%;
+    top: 13%;
+    animation-delay: -2.3s;
+  }
+  .stars .star21 {
+    position: absolute;
+    left: 23%;
+    top: 12%;
+    animation-delay: -2.4s;
+  }
+  .stars .star22 {
+    position: absolute;
+    left: 33%;
+    top: 27%;
+    animation-delay: -2.5s;
+  }
+  .stars .star23 {
+    position: absolute;
+    left: 66%;
+    top: 18%;
+    animation-delay: -2.6s;
+  }
+  .stars .star24 {
+    position: absolute;
+    left: 50%;
+    top: 43%;
+    animation-delay: -2.7s;
+  }
+  
+  .stars .star25 {
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    animation-delay: -2.9s;
+  }
+  .stars .star26 {
+    position: absolute;
+    left: 26%;
+    top: 2%;
+    animation-delay: -1.5s;
+  }
+
+/* -------------------隕石-------------------------- */
+
+  .rocks {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    
+  }
+
+  @media (max-width: 565px) {
+    .rocks {
+      display: none;
+      
+    }
+  }
+
+ 
+
+  .rocks .rock img {
+    
+    width: 30px;
+    height: 25px;
+    animation: rockMove 15s  infinite ;
+  }
+  
+
+
+  @keyframes rockMove {
+
+    0%, 100% {
+        transform:scale(0);
+      }
+      50% {
+        transform:scale(2);
+      }
+    
+    0% {
+        transform: translate(100px, 0px);
+        
+      }
+      100% {
+        transform: translate(-100px, 0px);
+      }
+
+      0%, 100% {
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      
+      
+
+    }
+
+    
+
+    .rocks .rock1 img {
+        position: absolute;
+        left: 65%;
+        top: 65%;
+        animation-delay: -5s;
+        
+      }
+      .rocks .rock2 img {
+        position: absolute;
+        left: 70%;
+        top: 30%;
+        animation-delay: 0s;
+      }
+      .rocks .rock3 img {
+        position: absolute;
+        left: 15%;
+        top: 20%;
+        animation-delay: -20s;
+      }
+      .rocks .rock4 img {
+        position: absolute;
+        left: 20%;
+        top: 60%;
+        animation-delay: -15s;
+      }
+      .rocks .rock5 img {
+        position: absolute;
+        left: 35%;
+        top: 35%;
+        animation-delay: -12s;
+      }
+
+
+
+/* -----------story開始---------- */
+.story {
+    width: 100%;
+    /* height: 200rem; */
+    background-color: rgb(42, 35, 69);
+    position: relative;
+    color: #fff;
+    box-sizing: border-box;
+    /* padding-bottom: 300px; */
+    padding-top: 60px;
+}
+
+.story .parts{
+  width: 100%;
+  /* height: 200vh; */
+  
+}
+
+.story .bgline1{
+  position: absolute;
+  top: 360px;
+  left: 0;
+}
+
+.story .bgline2{
+  position: absolute;
+  top: 1180px;
+  left: 0;
+}
+
+.story .title{
+  width: 90%;
+  margin-left: 5%;
+  margin-right: 5%;
+  transition: all 2s ease-in-out;
+  /* position: absolute; */
+  /* top: 200px; */
+  /* background-color: #fff; */
+
+}
+
+
+@media (max-width: 575.98px) {
+  .story .title{
+    /* width: calc(0.8px + 9rem); */
+    /* filter:brightness(1); */
+    transition: all 2s ease-in-out;
+    position: absolute;
+     top:8%;
+  }
+
+}
+
+
+.story .title p{
+  line-height: 2;
+  font-size: 1rem;
+}
+
+@media (max-width: 575px) {
+  .story .title .mb{
+    display: block;
+  }
+  .story .title .pc{
+    display: none;
+
+  }
+  .story .title p{
+    line-height: 2;
+    font-size: 0.5rem;
+  }
+
+}
+@media (min-width: 575px) {
+  
+  .story .title .pc{
+    display: block;
+  }
+  .story .title .mb{
+    display: none;
+  }
+
+}
+
+
+
+
+.story .parts-r{
+  margin-top: 150px;
+}
+
+.story .parts-c img{
+    width: calc(10px + 5rem);
+    position: absolute;
+    animation: personJump 15s  infinite ;
+}
+
+@keyframes personJump {
+  
+
+0% {
+    transform: translate(0px, 0px) scale(1);
+    
+  }
+  75% {
+    
+    
+  }
+
+  100% {
+    transform: translate(0px, 1800px) scale(0.2);
+    
+  }
+
+  0%, 100% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+
+  
+
+  }
+
+.story .allparts {
+  position: relative;
+  padding-bottom: 140px;
+
+}
+
+
+.story .parts {
+  position: relative;
+  z-index: 20;
+  
+  box-sizing: inherit;
+}
+
+
+
+
+.story .part1 {
+  padding-top: calc(1px + 12rem);
+  
+
+}
+
+
+
+
+
+
+.story .part2 {
+  padding-top: calc(1px + 12rem);
+  
+
+}
+.story .parts-l .part3  {
+  padding-top: 50px;
+}
+.story .part4 {
+  padding-top: 70px;
+
+}
+
+.story .part5 {
+  
+
+
+}
+
+.story .part6 {
+  
+  padding-top: 120px;
+
+}
+
+@keyframes personFloat{
+  0%, 100%{
+    transform: translate(0px, 0px);
+     
+      
+  }
+  
+  50%{
+    transform: translate(0px, -20px); 
+  }
+
+ 
+  
+}
+
+.story .part img{
+  width: calc(0.8px + 10rem);
+  filter:brightness(0);
+  transition: 1s;
+  animation: personFloat 5s Linear infinite ;
+}
+
+.story .part :hover{
+  filter:brightness(1);
+}
+
+
+
+@media (max-width: 575.98px) {
+  .story .part img{
+    width: calc(0.8px + 9rem);
+    filter:brightness(1);
+    transition: 1s
+  }
+
+}
+
+@media (max-width: 375px) {
+  .story .part img{
+    width: calc(26px + 6rem);
+    filter:brightness(1);
+    transition: 1s
+  }
+}
+  @media (max-width: 320px) {
+    .story .part img{
+      width: calc(1px + 5rem);
+      filter:brightness(1);
+      transition: 1s
+    }
+  }
+  
+
+
+
+
+.story .part .text{
+  background-color: rgba(162, 170, 225, 0.189);
+  border-radius: 5%;
+  /* filter:brightness(0); */
+}
+
+
+
+
+.story .part p{
+  text-align: center;
+  line-height: 1.5;
+  font-size: 0.5rem;
+}
+
+
+
+@media (min-width: 575.98px) {
+  /* .story .parts-r .text{
+    width: 100px;
+    font-size: calc(1px + 1rem);
+  } */
+  .story .part p{
+    width: calc(1px + 12rem);
+    font-size: 1rem;
+    /* font-size: calc(1px + 0rem); */
+  }
+}
+
+
+.story .earth-box{
+  position: relative;
+  width: 100%;
+  
+}
+
+.story .earth{
+  /* position: absolute; */
+  width: calc(1px + 21rem);
+  /* left: 35%; */
+  /* bottom: -200px; */
+  /* transform: translate(-40% ,0%); */
+  animation: earthRound 10s Linear infinite ;
+}
+
+@media (max-width: 426px) {
+  .story .earth{
+    width: calc(1px + 16rem);
+    
+  }
+}
+
+@media (max-width: 376px) {
+  .story .earth{
+    width: calc(1px + 16rem);
+    
+  }
+}
+@media (max-width: 320px) {
+  .story .earth{
+    width: calc(1px + 16rem);
+    
+  }
+}
+
+
+
+@keyframes earthRound{
+  0%{
+    transform:rotate(0deg)
+  }
+  
+  100%{
+    transform:rotate(360deg)
+  }
+  
+}
+
+/* * -----------story結束---------- */ 
+
+/* -------------------------------------------main結束----------------------------------------------------------- */
+
+
+
+/* --------------------------------------say-start開始------------------------------ */
+
+@media (min-width: 767px) {
+  .say-start{
+    
+    display: none;
+  }
+  
+}
+@media (max-width: 766px) {
+  .say-start-pc{
+    
+    display: none;
+  }
+  
+}
+
+
+
+.say-start{
+  background:linear-gradient(rgb(42, 35, 69), rgba(35, 34, 34,1));
+  
+}
+
+.say-start .container{
+  /* width: 100%;
+  height: 800px;
+  position: relative; */
+  
+  
+}
+
+.say-start .all-water{
+  width: 100%;
+  height: 600px;
+  position: relative;
+  
+}
+
+.say-start .all-water .water1{
+  position: absolute;
+  top: 10%;
+  left: 25%;
+  
+}
+
+.say-start .all-water .water2{
+  position: absolute;
+  top: 80%;
+  left: 60%;
+
+}
+.say-start .all-water .water3{
+  position: absolute;
+  top: 50%;
+  left: 35%;
+  
+}
+.say-start .all-water .water4{
+  position: absolute;
+  top: 25%;
+  left: 70%;
+  
+}
+
+
+.say-start .box{
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(146, 146, 146);
+  background-color: rgba(255, 255, 255, 0.245);
+  border-radius: 50%;
+  opacity: 0.3;
+  
+}
+
+.say-start .text1{
+  position: absolute;
+  top: 11%;
+  /* left: 25%; */
+  
+  /* opacity: 0.3; */
+  
+}
+
+.say-start p{
+  position: absolute;
+  top: 11%;
+  /* left: 25%; */
+  transition: all 2s ease-in-out;
+  opacity: 0.3;
+  
+}
+
+.say-start .part{
+  
+}
+
+.say-start .part:hover p{
+  
+  
+  color: rgb(255, 255, 255);
+  transform: scale(2);
+  font-weight: 800;
+  /* z-index: 99; */
+  opacity: 1;
+  /* transition: all 2s ease-in-out .5s; */
+
+  
+
+  
+}
+
+
+
+.say-start .box:hover{
+  animation: waterMove 5s Linear infinite reverse;
+  opacity: 1;
+}
+
+
+
+
+.say-start .box0{
+  
+  /* transform: translate(-50%,-50%); */
+  transform: scale(1, 1);
+  /* border: 1px solid #000; */
+  animation-delay: -1s;
+}
+.say-start .box1{
+  
+  /* transform: translate(-50%,-50%); */
+  transform: scale(1.5, 1.5);
+  /* border: 1px solid #000; */
+  animation-delay: -1.5s;
+}
+
+.say-start .box2{
+  
+  /* transform: translate(-50%,-50%); */
+  transform: scale(2, 2);
+  /* border: 1px solid #000; */
+  animation-delay: -2s;
+}
+.say-start .box3{
+  transform: scale(2.5, 2.5);
+  /* border: 1px solid #000; */
+  animation-delay: -2.5s;
+}
+
+.say-start .box4{
+  transform: scale(3, 3);
+  /* border: 1px solid #000; */
+  animation-delay: -3s;
+}
+
+.say-start .box5{
+  transform: scale(3.5, 3.5);
+  /* border: 1px solid #000; */
+  animation-delay: -4.5s;
+}
+
+.say-start .box5  {
+  padding-top: 15%;
+}
+
+.say-start p{
+  color: rgb(255, 255, 255);
+}
+
+
+@keyframes waterMove{
+  0%, {
+    transform: scale(1);  
+  }
+  
+  100%{
+    transform: scale(1.5); 
+  }
+
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  
+}
+
+/* --------------------------------------say-start結束------------------------------ */
+
+/* --------------------------------------say-start-pc開始------------------------------ */
+
+
+.say-start-pc{
+  background:linear-gradient(rgb(42, 35, 69), rgba(35, 34, 34,1));
+  /* display: none; */
+  
+}
+
+.say-start-pc .container{
+  /* width: 100%; */
+  height: 500px;
+  animation: personFloat 5s Linear infinite ;
+  transition: 5s;
+  /* position: relative; */
+  
+}
+
+.say-start-pc .all-water{
+  width: 80%;
+  margin-left: 8%;
+  margin-right: 5%;
+
+  /* height: 600px; */
+  position: relative;
+  
+  
+}
+
+
+
+
+.say-start-pc .box{
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  border: 1px solid rgb(146, 146, 146);
+  background-color: rgba(255, 255, 255, 0.245);
+  border-radius: 50%;
+  opacity: 0.3;
+  
+  
+}
+.say-start-pc .part{
+  
+}
+
+
+.say-start-pc .text{
+  /* background-color: rgb(232, 200, 200); */
+}
+
+.say-start-pc .main0{
+  color: rgb(255, 255, 255);
+  /* background-color: rgb(242, 162, 162); */
+  position: absolute;
+  top:60%;
+  left: 0%;
+  font-size: 1.5rem;
+  /* transform: translate(-50%.-50%); */
+  transition: all 2s ease-in-out;
+  opacity: 0;
+  text-align: center;
+}
+
+.say-start-pc .main1{
+  color: rgb(255, 255, 255);
+  position: absolute;
+  top: 75%;
+  left: 0%;
+  font-size: 1.0rem;
+  /* width: 100%; */
+  
+  transition: all 2s ease-in-out 0.2s;
+  opacity: 0;
+}
+
+.say-start-pc .part:hover h5{
+  
+  
+  color: rgb(255, 255, 255);
+  transform: scale(1);
+  transform: translate(0px,50px);
+  font-weight: 800;
+  /* z-index: 99; */
+  opacity: 1;
+  /* transition: all 2s ease-in-out .5s; */
+
+  
+
+  
+}
+  
+
+
+.say-start-pc p{
+  position: absolute;
+  top: 51%;
+  width: 35px;
+  /* left: 25%; */
+  transition: all 2s ease-in-out;
+  opacity: 0.3;
+  
+}
+
+.say-start-pc .text:hover ~ .box{
+  
+  animation: waterMove 5s Linear infinite reverse;
+  background-color: #fff;
+  transform: scale(1);
+  font-weight: 800;
+  /* z-index: 99; */
+  opacity: 1;
+  /* transition: all 2s ease-in-out .5s; */
+
+  
+
+  
+}
+
+
+.say-start-pc .part:hover p{
+  
+  
+  color: rgb(255, 255, 255);
+  transform: scale(2);
+  font-weight: 800;
+  /* z-index: 99; */
+  opacity: 1;
+  /* transition: all 2s ease-in-out .5s; */
+
+  
+
+  
+}
+
+
+
+.say-start-pc .box:hover{
+  animation: waterMove 5s Linear infinite reverse;
+  
+  opacity: 1;
+}
+
+
+
+
+.say-start-pc .box0{
+  
+  /* transform: translate(-50%,-50%); */
+  transform: scale(1, 1);
+  /* border: 1px solid #000; */
+  animation-delay: -1s;
+}
+.say-start-pc .box1{
+  
+  /* transform: translate(-50%,-50%); */
+  transform: scale(1.5, 1.5);
+  /* border: 1px solid #000; */
+  animation-delay: -1.5s;
+}
+
+.say-start-pc .box2{
+  
+  /* transform: translate(-50%,-50%); */
+  transform: scale(2, 2);
+  /* border: 1px solid #000; */
+  animation-delay: -2s;
+}
+.say-start-pc .box3{
+  transform: scale(2.5, 2.5);
+  /* border: 1px solid #000; */
+  animation-delay: -2.5s;
+}
+
+.say-start-pc .box4{
+  transform: scale(3, 3);
+  /* border: 1px solid #000; */
+  animation-delay: -3s;
+}
+
+.say-start-pc .box5{
+  transform: scale(3.5, 3.5);
+  /* border: 1px solid #000; */
+  animation-delay: -4.5s;
+}
+
+.say-start-pc .box5  {
+  padding-top: 15%;
+}
+
+.say-start-pc p{
+  color: rgb(255, 255, 255);
+}
+
+
+@keyframes waterMove{
+  0%, {
+    transform: scale(1);  
+  }
+  
+  100%{
+    transform: scale(1.5); 
+  }
+
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  
+}
+
+/* --------------------------------------say-start-pc結束------------------------------ */
+
+/* ----------------------------------------say開始------------------------------------------- */
+.say{
+  background-color: rgb(35, 34, 34);
+  height: 1000px;
+  position: relative;
+  padding-top: 200px;
+  /* border: 10px double rgba(88, 95, 62, 0.696); */
+  /* border-bottom: 10px double rgba(57, 51, 91, 0.696); */
+  color: rgb(255, 255, 255);
+  /* box-shadow: 0px -100px 500px rgb(35, 34, 34); */
+}
+
+.say .card{
+  background-color: rgb(35, 34, 34);
+  border: 10px double rgba(88, 95, 62, 0.696);
+  
+  
+  padding-top: 100px;
+  padding-bottom: 40px;
+  margin-bottom: 30px;
+  
+}
+
+.say .card .container{
+  /* background-color: rgb(255, 255, 255); */
+  /* width: 100px; */
+  /* margin-bottom: 60px; */
+  width: 70%;
+  text-align: center;
+  border-radius: 5% 5% 20% 20% ;
+  padding-top: 0%;
+  color: aliceblue;
+  
+}
+
+.say .card .container img{
+  
+  border-radius: 50% 100% 60% 100%;
+  
+}
+
+.say .card .container .main{
+  /* scale: 1 2; */
+  background-color: rgb(35, 34, 34);
+  border-radius: 80% 140% 80% 140%;
+  
+}
+
+.say li{
+  border-radius: 50%;
+
+}
+
+.say ol{
+  /* margin-bottom: 40px; */
+  padding-bottom: 50px;
+  
+}
+
+/* ----------------------------------------------say結束------------------------------------- */
+
+
+
+
+
+
+
+
+/* ----------------------------------------------info開始------------------------------------- */
+.info{
+  width: 100%;
+  /* height: 1100px; */
+  background-color: rgb(42, 35, 69);
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+  
+}
+
+.info img{
+  
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  opacity: 0.5;
+  animation: starWork 5s Linear infinite reverse;
+  
+}
+
+.info .c01{
+  width: 100px;
+  
+  top: 0%;
+  left: 10%;
+  animation-delay: -0.5s;
+  
+  
+}
+.info .c02{
+  width: 100px;
+  
+  top: 53%;
+  left: 5%;
+  animation-delay: -1s;
+  
+}
+.info .c03{
+  width: 50px;
+  
+  top: 92%;
+  left: 25%;
+
+  animation-delay: -1.5s;
+  
+  
+}
+.info .c04{
+  width: 100px;
+  
+  top: 40%;
+  left: 85%;
+  animation-delay: -2s;
+  
+  
+}
+.info .c05{
+  width: 80px;
+  
+  top: 70%;
+  left: 75%;
+  animation-delay: -2.5s;
+  
+  
+}
+.info .c06{
+  width: 100px;
+  
+  top: 10%;
+  left: 80%;
+  animation-delay: -3.5s;
+  
+  
+}
+.info .c07{
+  width: 50px;
+  
+  top: 8%;
+  left: 50%;
+  animation-delay: -4.5s;
+  
+  
+}
+
+@keyframes starWork{
+  
+
+  0%, 100% {
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  
+  0%, 100%{
+    transform: translate(0px, 0px);
+      
+  }
+  
+  50%{
+    /* transform: translate(30px, 0px);  */
+  }
+
+
+}
+
+
+
+
+.info .cards{
+  width: 100%;
+  position: relative;
+}
+
+.info .left {
+  width: 80%;
+
+}
+.info .right {
+  width: 80%;
+  padding-top: 50px;
+
+}
+
+.info .right .year-list{
+  border-top: 1px solid rgb(255, 255, 255);
+  
+}
+
+.info .left img{
+  width: 90%;
+  transition: 2s;
+
+}
+.slidertext{
+  display: none;
+
+}
+
+
+/* -----------------camera開始-------------------- */
+
+.camera{
+  /* overflow: hidden; */
+  width: 200px;
+  height: 200px;
+  perspective: 800px;
+  perspective-origin: 50%  ;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+
+
+
+.camera .cube{
+  transform-style: preserve-3d;
+  animation: rotateY 20s linear infinite;
+  
+  
+}
+
+
+.camera .cube:hover{
+  animation-play-state:paused;
+  transform: 2s;
+  
+}
+
+
+
+.camera .box{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  /* border-radius: 50%; */
+}
+.camera .left{
+  background-image: url(./images/pic/planet.png);
+  background-size: 100% 100%;
+  background-position: 50% 0%;
+  background-repeat: no-repeat;
+  filter:brightness(.8);
+  transform: rotateY(90deg) translateZ(100px);
+  
+}
+.camera .right{
+  background-image: url(./images/pic/hat.jpg);
+  background-size: cover;
+  background-position: 50% 50%;
+  filter:brightness(.8);
+  transform: rotateY(-90deg) translateZ(100px);
+  
+}
+.camera .top{
+  background-color: rgba(71, 113, 205, 0.364);
+  transform: rotateX(90deg) translateZ(120px);
+  
+}
+.camera .bottom{
+  background-color: rgba(174, 144, 227, 0.487);
+  transform: rotateX(-90deg) translateZ(120px);
+  
+}
+.camera .front{
+  background-image: url(./images/pic/main.jpg);
+  background-size: contain;
+  filter:brightness(.8);
+  transform: rotateY(180deg) translateZ(100px);
+  
+}
+.camera .between{
+  background-color: rgba(57, 217, 220, 0.322);
+  background-image: url(./images/writer.jpg);
+  background-size: contain;
+  filter:brightness(.8);
+  transform: translateZ(100px);
+  
+}
+
+.camera .left:hover, .camera .right:hover, .camera .front:hover, .camera .between:hover{
+  filter:brightness(1);
+  
+}
+
+
+
+
+@keyframes rotateY{
+  0%{
+      transform: rotate3d(0, 0, 0, 0) ;
+
+      
+  }
+  100%{
+      transform: rotate3d(0, 1, 0, 360deg) translate3d(00px,00px,0)  ;
+  }
+}
+
+/* -----------------camera結束-------------------- */
+
+
+
+/* ----------------------------------------------info結束------------------------------------- */
+
+
+
+
+
+/* -----------------join開始-------------------- */
+
+.join{
+  overflow: hidden;
+  background-color: rgb(42, 35, 69);
+  position: relative;
+}
+
+
+.join .info-bg{
+  width: 100%;
+  /* height: 1100px; */
+  background:url(./images/SVG/desert.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 0 103%;
+  overflow: hidden;
+}
+
+.join .parts{
+  width: 100%;
+  padding-bottom: 300px;
+  padding-top: 100px;
+
+}
+
+.join .part-l{
+  width: 100%;
+
+}
+.join .part-r{
+  width: 100%;
+
+}
+.join .part-r img{
+  width: 90%;
+  animation: personFloat 5s Linear infinite ;
+
+}
+
+.join .part-l p{
+  text-decoration: none;
+  font-size: calc(10px + 5rem);
+  text-align: center;
+  background:url(./images/movie/hat.svg);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  cursor: pointer; 
+  /* text-shadow: 0 0 0.05em rgb(255, 254, 254); */
+  /* position: absolute; */
+}
+
+.join .part-l .stars{
+  display: none;
+}
+
+.all img{
+  width: 80%;
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  
+}
+
+.join .cameraa{
+  overflow: hidden;
+  width: 100%;
+  height: 200px;
+  perspective: 800px;
+  perspective-origin: 50%  ;
+  position: absolute;
+  bottom: 2%;
+  /* background-color: #fff; */
+}
+
+.join .people{
+  transform-style: preserve-3d;
+  
+  animation: peopleTurn 2s  infinite
+}
+
+.join .people img{
+  width: 30px;
+  position: absolute;
+  bottom: 0px;
+  
+  /* animation: peopleMove 15s infinite reverse; */
+  animation-fill-mode: forwards;
+}
+
+.join .people .people1{
+  
+ 
+  animation: peopleMove1 15s infinite reverse;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.join .people .people2{
+ 
+  animation: peopleMove2 18s infinite reverse;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+}
+
+.join .people .people3{
+ 
+  animation: peopleMove3 20s infinite reverse;
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+
+}
+
+
+@keyframes peopleMove1{
+  
+  0%{
+    transform:translatex(-30px) scale(1)
+    
+    
+  }
+  100%{
+    transform:translatex(200px) scale(0.3);
+    opacity: 0; 
+  }
+  
+  
+}
+@keyframes peopleMove2{
+  
+  0%{
+    transform:translatex(-30px) scale(1)
+    
+    
+  }
+  100%{
+    transform:translatex(400px) scale(0.3);
+    opacity: 0; 
+  }
+  
+  
+}
+@keyframes peopleMove3{
+  
+  0%{
+    transform:translatex(-30px) scale(1)
+    
+    
+  }
+  100%{
+    transform:translatex(600px) scale(0.3);
+    opacity: 0; 
+  }
+  
+  
+}
+
+
+@keyframes peopleTurn{
+  0% ,100%{
+    transform: translatey(200px)
+  }
+  50%{
+    transform: translatey(206px)
+  }
+  
+}
+
+
+
+/* ------------------------------------------ */
+
+@media (min-width: 767px) {
+  .join .part-l p{
+    
+    font-size: calc(80px + 5rem);
+  }
+  
+}
+@media (max-width: 766px) {
+  .join .part-r img{
+    
+    width: 50%;
+  }
+  
+}
+
+/* -----------------join結束-------------------- */
+
+/* -----------------footer開始-------------------- */
+
+footer{
+  background-color: rgb(0, 0, 0);
+  color: rgb(251, 251, 251);
+  height: 50px;
+  padding-top: 10px;
+}
+/* -----------------footer結束-------------------- */
